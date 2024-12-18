@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header class="bg-primary text-white p-3">
+        <div class="container">
+            <h1>Встроенные модули</h1>
+            <nav>
+                <a class="text-white" href="{{ url_for('index') }}">Главная</a>
+                <a class="text-white" href="{{ url_for('about') }}">О нас</a>
+                <a class="text-white" href="{{ url_for('cnn_model') }}">CNN</a>
+                <a class="text-white" href="{{ url_for('dense_model') }}">Dense</a>
+                <a class="text-white" href="{{ url_for('yolov5_model') }}">Детектирование</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container my-4">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="bg-dark text-white text-center p-3">
+        <p>2024 Курсовая работа по дисцеплине ML </p>
+        <p>Выполнил студент группы ПИ-301 </p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

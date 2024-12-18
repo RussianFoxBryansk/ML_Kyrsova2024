@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Загрузка изображения{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Загрузка и классификация изображения</h2>
+    <form id="uploadForm" action="{{ url_for('dense_model') }}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="imageInput">Выберите фотографию:</label>
+            <input type="file" class="form-control-file" id="imageInput" name="image" accept="image/*" required>
+        </div>
+        <img id="imagePreview" class="img-fluid" alt="Предпросмотр изображения" style="display: none; max-height: 300px; margin-top: 20px;">
+        <div class="form-group" id="buttonGroup" style="display: none;">
+            <button type="submit" class="btn btn-primary">Классифицировать это фото</button>
+            <button type="button" class="btn btn-secondary" id="chooseAnotherButton">Выбрать другое</button>
+        </div>
+    </form>
+
+    {% if result is not none %}
+    <div class="mt-4">
+        <h4>Товар на фото относится к категории: {{ result }}</h4>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    const imageInput = document.getElementById('imageInput');
+    const imagePreview = document.getElementById('imagePreview');
+    const buttonGroup = document.getElementById('buttonGroup');
+
+    imageInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block';
+                buttonGroup.style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
+    document.getElementById('chooseAnotherButton').addEventListener('click', function() {
+        imageInput.value = ''; // Сбрасываем поле ввода
+        imagePreview.style.display = 'none'; // Скрываем изображение
+        buttonGroup.style.display = 'none'; // Скрываем кнопки
+    });
+</script>
+
+{% endblock %}

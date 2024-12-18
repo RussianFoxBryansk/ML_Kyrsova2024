@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h2 class="display-4">Добро пожаловать !</h2>
+    <p class="lead">Попробуйте классифицировать изображения с помощью современных моделей машинного обучения.</p>
+    <hr class="my-4">
+    <p>Используйте наше приложение для быстрой и точной классификации.</p>
+    <a class="btn btn-primary btn-lg" href="/cnn_model" role="button">Попробовать CNN модель</a>
+    <a class="btn btn-secondary btn-lg" href="/dense_model" role="button">Попробовать Dense модель</a>
+    <a class="btn btn-success btn-lg" href="/yolov5_model" role="button">Попробовать YOLOv5</a>
+</div>
+
+<div class="container">
+    <h3>Почему выбирают нас?</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Высокая точность</h5>
+                    <p class="card-text">Наши модели обеспечивают высокую точность классификации изображений.</p>
+                    <i class="fas fa-check-circle fa-3x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Удобный интерфейс</h5>
+                    <p class="card-text">Простой и интуитивно понятный интерфейс для пользователей всех уровней.</p>
+                    <i class="fas fa-laptop fa-3x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Быстрая обработка</h5>
+                    <p class="card-text">Быстрая и эффективная обработка изображений для мгновенных результатов.</p>
+                    <i class="fas fa-clock fa-3x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-5">
+    <h4>Присоединяйтесь к нам и начните классификацию изображений уже сегодня!</h4>
+    <a class="btn btn-info btn-lg" href="/about" role="button">Узнать больше о нас</a>
+</div>
+{% endblock %}
+

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}YOLOv5 - Обнаружение объектов{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Обнаружение объектов с помощью YOLOv5</h2>
+    <p>Загрузите изображение для обнаружения объектов с использованием модели YOLOv5.</p>
+
+    <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="image" class="form-label">Выберите изображение:</label>
+            <input type="file" class="form-control" name="file" id="image" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Загрузить</button>
+    </form>
+
+{% if result %}
+    <h3>Результаты:</h3>
+    <img src="{{ url_for('static', filename=result) }}" alt="Annotated Image" class="img-fluid">
+
+{% endif %}
+
+</div>
+{% endblock %}
